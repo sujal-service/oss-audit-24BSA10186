@@ -1,26 +1,28 @@
-!/bin/bash
-Foss package inspector
-Author: Sujal Singh
+#!/data/data/com.termux/files/usr/bin/bash
+# Script 2: FOSS Package Inspector
+# Author: Sujal Singh (24BSA10186)
 
-PACKAGE="git" [cite: 132]
+PACKAGE="git"
 
-Start by seeing whether the package sits already inside the system - this method holds up on both Kali and Debian setups [cite: 134, 135]
-If you run dpkg -l on a package and it shows up quietly, without errors [cite: 128]
-PACKAGE lives here now. It runs without fuss. The system recognizes it fully. No extra steps needed after this point. Everything works as expected from inside.[cite: 138]
-Look up details by edition or overview. [cite: 139]
-Check package details using dpkg status command then filter output for version and description lines [cite: 128]
+echo "Searching for package: $PACKAGE..."
+
+# Uses 'pkg list-installed' as the Termux equivalent to rpm/dpkg [cite: 128]
+if pkg list-installed $PACKAGE &>/dev/null; then
+    echo "SUCCESS: $PACKAGE is installed on this system."
+    echo "------------------------------------------"
+    # Filter for the specific version info
+    pkg list-installed $PACKAGE | grep $PACKAGE
 else
-echo "$PACKAGE is NOT installed." [cite: 140]
+    echo "ALERT: $PACKAGE is NOT installed."
+    echo "To install it, run: pkg install git"
 fi
 
-Case statement for philosophy notes [cite: 141]
-When PACKAGE matches, proceed accordingly. [cite: 141]
-git)
-echo "Git: The tool Linus built when proprietary failed him." ;; [cite: 24, 144]
-httpd)
-echo "Apache: the web server that built the open internet" ;; [cite: 143]
-mysql)
-echo "MySQL: open source at the heart of millions of apps" ;; [cite: 144]
-)
-echo "Philosophy: This software promotes freedom and collaboration." ;;
-esac [cite: 142]
+echo "------------------------------------------"
+
+# Case statement to print philosophy (Requirement: Unit 2) [cite: 128]
+case $PACKAGE in
+    git)
+        echo "Philosophy: Git enables decentralized, distributed collaboration." ;;
+    *)
+        echo "Philosophy: Supporting software freedom and open standards." ;;
+esac

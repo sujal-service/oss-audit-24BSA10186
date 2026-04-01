@@ -1,29 +1,30 @@
-!/bin/bash
-System Identity Report Script One
-Sujal Singh Author
-Open Source Software Course
+#!/data/data/com.termux/files/usr/bin/bash
+# Script 1: System Identity Report
+# Author: Sujal Singh (24BSA10186)
+# Course: Open Source Software
 
-- Variables [cite: 105]
-Sujal Singh
-SOFTWARE_CHOICE="Git" [cite: 107]
-A name gets pulled from a system file using a chain of tools. One piece finds the right line, another strips extra marks around it. What shows up is a clean label meant for display. The result lands in a placeholder ready to be used later.[/final]
+# --- Variables ---
+STUDENT_NAME="Sujal Singh"
+SOFTWARE_CHOICE="Git"
 
-- System info [cite: 109]
-KERNEL=$(uname -r) [cite: 110]
-USER_NAME=$(whoami) [cite: 110]
-UPTIME=$(uptime -p) [cite: 111]
-CURRENT_DATE=$(date) [cite: 124]
+# --- System info ---
+# Using uname -o because Termux doesn't use standard /etc/os-release
+DISTRO=$(uname -o)
+KERNEL=$(uname -r)
+USER_NAME=$(whoami)
+UPTIME=$(uptime -p)
+CURRENT_DATE=$(date)
 
-A screen shows up right around line 113
-Start here - - - - - - - - - - - - - - - -
-$STUDENT_NAME’s Open Source Audit
-Printing software selection value stored in variable SOFTWARE_CHOICE using echo command [cite: 116]
-A line of equal signs fills the screen. This appears just once at that reference point [cite: 119]
+# --- Display ---
+echo "=========================================="
+echo "  $STUDENT_NAME's Open Source Audit"
+echo "  Software Choice: $SOFTWARE_CHOICE"
+echo "=========================================="
 
-echo "Operating System : $DISTRO" [cite: 124]
-The kernel version shows up like this: $KERNEL [cite: 120]
-The script shows who is logged in right now using $USER_NAME [cite: 121, 122]
-Time since last restart: $UPTIME [cite: 123]
-The date and time now show up like this: $CURRENT_DATE appears on screen.
+echo "Operating System : $DISTRO (Termux)"
+echo "Kernel Version   : $KERNEL"
+echo "Current User     : $USER_NAME"
+echo "System Uptime    : $UPTIME"
+echo "Current Date/Time: $CURRENT_DATE"
 echo "------------------------------------------"
-echo "This OS is covered by various Open Source licenses (GPL, MIT, etc.)." [cite: 124]
+echo "This OS is covered by various Open Source licenses (GPL, MIT, etc.)."
