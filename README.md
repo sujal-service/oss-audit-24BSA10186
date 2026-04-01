@@ -3,7 +3,7 @@
 **Name:** Sujal Singh  
 **Roll Number:** 24BSA10186  
 **Course:** Open Source Software (OSS)  
-**Selected Software:** [Insert Software Name, e.g., Git or Apache]
+**Selected Software:** Git
 
 ## Project Overview
 This repository contains the practical shell scripting component for the OSS Capstone Project. The scripts demonstrate Linux system administration, log analysis, and automation.
